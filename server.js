@@ -8,7 +8,9 @@ const app=express()
 const path = require('path');
 // const dotenv=require('dotenv').config()
 const PORT=8080
-
+app.get('/',(req,res)=>{
+  res.send("welcome")
+})
 app.use(cors());
 app.use(bodyparser.json());
 app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // to serve images
