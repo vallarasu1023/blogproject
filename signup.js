@@ -9,7 +9,7 @@ const User = require('./model'); // Make sure your model file is named correctly
 
 
 // MongoDB Connection
-mongoose.connect('mongodb+srv://vallarasu1023:CCH8j45cvdlQpQCK@cluster0.ea4xptv.mongodb.net/blogSite?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect('mongodb+srv://vallarasu1023:vallarasu2003@cluster0.ea4xptv.mongodb.net/blogSite?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 

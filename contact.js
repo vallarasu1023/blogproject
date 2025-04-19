@@ -8,7 +8,7 @@ const router=express.Router()
 
 
 // MongoDB Connection
-mongoose.connect('mongodb+srv://vallarasu1023:CCH8j45cvdlQpQCK@cluster0.ea4xptv.mongodb.net/blogSite?retryWrites=true&w=majority&appName=Cluster0', {
+mongoose.connect('mongodb+srv://vallarasu1023:vallarasu2003@cluster0.ea4xptv.mongodb.net/blogSite?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => {
