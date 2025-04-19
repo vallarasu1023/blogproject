@@ -7,7 +7,7 @@ const contact=require('./contact')
 const app=express()
 const path = require('path');
 // const dotenv=require('dotenv').config()
-const PORT=3020
+const PORT=8080
 
 app.use(cors());
 app.use(bodyparser.json());
