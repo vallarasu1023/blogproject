@@ -36,12 +36,12 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Upload Route
-router.post('https://blogproject-pk2l.onrender.com/upload', upload.single('file'), async (req, res) => {
+router.post('/upload', upload.single('file'), async (req, res) => {
   try {
     const newBlog = new Blog({
       title: req.body.title,
       content: req.body.content,
-      image: `https://blogproject-pk2l.onrender.com/uploads/${req.file.filename}`,
+      image: `/uploads/${req.file.filename}`,
     });
     await newBlog.save();
     res.status(201).json({ message: 'Blog saved!', blog: newBlog });
