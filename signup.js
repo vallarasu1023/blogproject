@@ -1,7 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const router=express.Router()
-const bcrypt = require('bcrypt');
 const User = require('./model'); // Make sure your model file is named correctly
 // const app = express();
 
@@ -10,7 +9,7 @@ const User = require('./model'); // Make sure your model file is named correctly
 
 
 // MongoDB Connection
-mongoose.connect('mongodb://127.0.0.1:27017/blogSite')
+mongoose.connect('mongodb+srv://vallarasu1023:CCH8j45cvdlQpQCK@cluster0.ea4xptv.mongodb.net/blogSite?retryWrites=true&w=majority&appName=Cluster0')
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
@@ -42,8 +41,7 @@ router.post('/sign', async (req, res) => {
       return res.status(409).json({ message: 'Email already registered' });
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = new User({ name, email, password: hashedPassword });
+    const newUser = new User({ name, email, password: password });
     await newUser.save();
 
     res.status(201).json({ message: 'User registered successfully' });
@@ -64,9 +62,9 @@ router.post('/login', async (req, res) => {
       return res.status(404).json({ message: 'No user found with this email' });
     }
 
-    const isPasswordValid = await bcrypt.compare(password, user.password);
 
-    if (!isPasswordValid) {
+
+  if (password!=user.password) {
       return res.status(401).json({ message: 'Incorrect password' });
     }
 
